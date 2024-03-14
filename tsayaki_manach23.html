@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tsayaki_manach23.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="tsayaki-write-up">Tsayaki-Write-Up</h1>
+<p>This Write-Up is structured into a surface level analysis of the challenge and a possible solution. The end of this Write-Up deals with the &quot;why&quot; on the vulnerability in the Tiny Encryption Algorithm (TEA).</p>
+<h2 id="primer">Primer</h2>
+<p>It is highly advantageous if one has solved the <em>Iced Tea</em> challenge, as its implementation of TEA is used as an integral component of this challenge. Furthermore, the decryption of a single ciphertext is necessary in the second half of this challenge.</p>
+<h2 id="related-keys">Related-Keys</h2>
+<p>The TEA provides fast and easy block cipher encryption for its users, but it suffers from two problems, which both stem from the fact, that each key essentially has three equivalent keys:</p>
+<ol>
+<li>Effective Key size is reduced from 128 bits to 126 bits. (Irrelevant for this challenge)</li>
+<li>These equivalent keys aren't randomly distributed throughout the set of available keys, but are directly related and can be found using very simple means.</li>
+</ol>
+<p>Examining the <em>server.py</em> we quickly see our objective:</p>
+<ul>
+<li>We are given a plaintext, which stays consistent throughout this attempt at the challenge</li>
+<li>We enter our goal ciphertext, which we can create ourselves using the TEA library provided</li>
+<li>We enter the key we used to encrypt</li>
+<li>The server encrypts the given plaintext, using an imported Initialization Vector (IV) we don't have access to, and checks it against our ciphertext</li>
+<li>If these are equivalent, we enter the other 3 keys that generate this ciphertext</li>
+<li>Repeat 10 times</li>
+</ul>
+<p align="center">
+    <figure>
+        <img src="./challenge_flowchart.drawio.svg" style="height: 50%; width: 50%" alt="Flowchart of the challenge" class="center"/>
+        <figcaption>Flowchart of the Challenge</figcaption>
+    </figure>
+</p>
+<h3 id="finding-related-keys">Finding Related Keys</h3>
+<p>This is a simple programmatic explanation (a more thorough explanation will be provided in the appendix):
+Our keys are 16 Bytes long and they contain two separate pairs of bits. Flipping the paired bits at the same time generates a key, which results in the same ciphertext when encrypting. These pairs are (31, 63) and (95, 127) read right to left. Using this knowledge, we can now create 3 new keys form any other key:</p>
+<ul>
+<li>base_key</li>
+<li>base_key with bits 31 and 63 flipped</li>
+<li>base_key with bits 95 and 127 flipped</li>
+<li>base_key with bits, 31, 63, 95, 127 flipped</li>
+</ul>
+<div style="page-break-after: always; break-after: page;"></div>
+<p>The flips can be achieved in python by creating a mask which can then be <em>XOR</em>d with the base_key.</p>
+<pre class="hljs"><code><div>initial_key = os.urandom(<span class="hljs-number">16</span>)
+
+mask_31_63 = bytes.fromhex(<span class="hljs-string">"00000000000000008000000080000000"</span>)
+
+mask_95_127 = bytes.fromhex(<span class="hljs-string">"80000000800000000000000000000000"</span>)
+
+mask_all = bytes.fromhex(<span class="hljs-string">"80000000800000008000000080000000"</span>)
+ 
+key_31_63 = byte_xor(initial_key, mask_31_63)
+
+key_95_127 = byte_xor(initial_key, mask_95_127)
+
+key_all = byte_xor(initial_key, mask_all)
+
+</div></code></pre>
+<h3 id="finding-the-iv">Finding the IV</h3>
+<p>The second part of this challenge is finding the IV, that the server uses to encrypt the given plaintext. Analysis of the source code for the TEA implementation shows the following:</p>
+<pre class="hljs"><code><div>X = self.IV
+<span class="hljs-keyword">for</span> pt <span class="hljs-keyword">in</span> blocks:
+  enc_block = self.encrypt_block(self._xor(X, pt))
+  ct += enc_block
+  X = enc_block
+<span class="hljs-keyword">return</span> ct
+</div></code></pre>
+<p>This code snippet shows, that before encrypting the first block, the first block is XORd with the IV. One way to extract the IV is using the informa server's ciphertext (c) given to us if our key does not produce the same ciphertext as the server. Using the decrypt functionality implemented in the <em>Iced-TEA</em> challenge (dec), the key we provided the server (k) and the plaintext (p) we can now calculate the IV. We are only interested in the first block of the decryption, as all other blocks are XORd with the preceding block.</p>
+<p style="text-align: center;">
+$dec_k(c) = p \oplus IV$
+<p style="text-align: center;">
+$p \oplus IV \oplus p = IV$
+<div style="page-break-after: always; break-after: page;"></div>
+<h3 id="solving-the-challenge">Solving the challenge</h3>
+<p>We can now solve the challenge, having acquired the IV used by the server and a method of generating equivalent keys, using the following steps (either sending our answers via python or just printing them to terminal and pasting it into a connection to the server)</p>
+<ol>
+<li>Open connection to the server</li>
+<li>Read the plaintext from the server</li>
+<li>Generate a random key</li>
+<li>Encrypt the plaintext using the random key and the calculated IV</li>
+<li>Submit the ciphertext to the server</li>
+<li>Submit the used key to the server</li>
+<li>Generate and submit the related keys using the method described above</li>
+<li>GOTO: 3.; repeat steps 3 through 7 9 more times</li>
+</ol>
+<p>This changes our flowchart from earlier as follows:</p>
+<p align="center">
+  <figure>
+  <img src="./solution_flowchart.drawio.svg" style="height: 50%; width: 50%" alt="Flowchart of the challenge"/>
+  <figcaption>Flowchart of the challenge including steps taken by the Player</figcaption>
+  </figure>
+</p>
+<div style="page-break-after: always; break-after: page;"></div>
+<h2 id="appendix-1-tea-vulnerability-explained">Appendix 1: TEA vulnerability explained</h2>
+<p>This vulnerability is caused by the usage of the key in the round function. Consider the following:</p>
+<p>$\forall a,b \in \mathbb{Z}_{2^{32}}: $</p>
+<p style="text-align: center;">
+$2^{31} + 2^{31} = 0$
+<p>also, since XOR is distributive:</p>
+<p style="text-align: center;">
+$(a \oplus 2^{31}) + (b \oplus 2^{31}) = (a + b)$
+<p>Looking at the first part of the key routine:</p>
+<pre class="hljs"><code><div>m0 += ((m1 &lt;&lt; <span class="hljs-number">4</span>) + K[<span class="hljs-number">0</span>]) ^ (m1 + s) ^ ((m1 &gt;&gt; <span class="hljs-number">5</span>) + K[<span class="hljs-number">1</span>])
+</div></code></pre>
+<p>We can see that the above calculation holds for the XOR applied to K[0] and K[1]. This can be done similarly to K[3] and K[4] which results in the masks mentioned in <a href="./Write-Up.md#finding-related-keys">Finding Related Keys</a></p>
+<div style="page-break-after: always; break-after: page;"></div>
+<h2 id="appendix-2-example-code">Appendix 2: Example Code</h2>
+<h4 id="server-code-of-the-challenge">Server Code of the challenge</h4>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> tea <span class="hljs-keyword">import</span> Cipher <span class="hljs-keyword">as</span> TEA
+<span class="hljs-keyword">from</span> secret <span class="hljs-keyword">import</span> IV, FLAG
+<span class="hljs-keyword">import</span> os
+
+ROUNDS = <span class="hljs-number">10</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">show_menu</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">"""
+============================================================================================
+|| I made this decryption oracle in which I let users choose their own decryption keys.   ||
+|| I think that it's secure as the tea cipher doesn't produce collisions (?) ... Right?   ||
+|| If you manage to prove me wrong 10 times, you get a special gift.                      ||
+============================================================================================
+"""</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">()</span>:</span>
+    show_menu()
+
+    server_message = os.urandom(<span class="hljs-number">20</span>)
+    print(<span class="hljs-string">f'Here is my special message: <span class="hljs-subst">{server_message.hex()}</span>'</span>)
+    
+    used_keys = []
+    ciphertexts = []
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(ROUNDS):
+        print(<span class="hljs-string">f'Round <span class="hljs-subst">{i+<span class="hljs-number">1</span>}</span>/10'</span>)
+        <span class="hljs-keyword">try</span>:
+            ct = bytes.fromhex(input(<span class="hljs-string">'Enter your target ciphertext (in hex) : '</span>))
+            <span class="hljs-keyword">assert</span> ct <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> ciphertexts
+
+            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">4</span>):
+                key = bytes.fromhex(input(<span class="hljs-string">f'[<span class="hljs-subst">{i+<span class="hljs-number">1</span>}</span>/<span class="hljs-subst">{j+<span class="hljs-number">1</span>}</span>] Enter your encryption key (in hex) : '</span>))
+                <span class="hljs-keyword">assert</span> len(key) == <span class="hljs-number">16</span> <span class="hljs-keyword">and</span> key <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> used_keys
+                used_keys.append(key)
+                cipher = TEA(key, IV)
+                enc = cipher.encrypt(server_message)
+                <span class="hljs-keyword">if</span> enc != ct:
+                    print(<span class="hljs-string">f'Hmm ... close enough, but <span class="hljs-subst">{enc.hex()}</span> does not look like <span class="hljs-subst">{ct.hex()}</span> at all! Bye...'</span>)
+                    exit()
+        <span class="hljs-keyword">except</span>:
+            print(<span class="hljs-string">'Nope.'</span>)
+            exit()
+            
+        ciphertexts.append(ct)
+
+    print(<span class="hljs-string">f'Wait, really? <span class="hljs-subst">{FLAG}</span>'</span>)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    run()
+
+</div></code></pre>
+<h3 id="tea-encryption-module-supplied-by-iced-tea-challenge">TEA encryption module supplied by <em>Iced TEA</em> challenge</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">from</span> Crypto.Util.Padding <span class="hljs-keyword">import</span> pad
+<span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> bytes_to_long <span class="hljs-keyword">as</span> b2l, long_to_bytes <span class="hljs-keyword">as</span> l2b
+<span class="hljs-keyword">from</span> enum <span class="hljs-keyword">import</span> Enum
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Mode</span><span class="hljs-params">(Enum)</span>:</span>
+    ECB = <span class="hljs-number">0x01</span>
+    CBC = <span class="hljs-number">0x02</span>
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Cipher</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, key, iv=None)</span>:</span>
+        self.BLOCK_SIZE = <span class="hljs-number">64</span>
+        self.KEY = [
+            b2l(key[i : i + self.BLOCK_SIZE // <span class="hljs-number">16</span>])
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(key), self.BLOCK_SIZE // <span class="hljs-number">16</span>)
+        ]
+        self.DELTA = <span class="hljs-number">0x9E3779B9</span>
+        self.IV = iv
+        <span class="hljs-keyword">if</span> self.IV:
+            self.mode = Mode.CBC
+        <span class="hljs-keyword">else</span>:
+            self.mode = Mode.ECB
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_xor</span><span class="hljs-params">(self, a, b)</span>:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">b""</span>.join(bytes([_a ^ _b]) <span class="hljs-keyword">for</span> _a, _b <span class="hljs-keyword">in</span> zip(a, b))
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encrypt</span><span class="hljs-params">(self, msg)</span>:</span>
+        msg = pad(msg, self.BLOCK_SIZE // <span class="hljs-number">8</span>)
+        blocks = [
+            msg[i : i + self.BLOCK_SIZE // <span class="hljs-number">8</span>]
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(msg), self.BLOCK_SIZE // <span class="hljs-number">8</span>)
+        ]
+
+        ct = <span class="hljs-string">b""</span>
+        <span class="hljs-keyword">if</span> self.mode == Mode.ECB:
+            <span class="hljs-keyword">for</span> pt <span class="hljs-keyword">in</span> blocks:
+                ct += self.encrypt_block(pt)
+        <span class="hljs-keyword">elif</span> self.mode == Mode.CBC:
+            X = self.IV
+            <span class="hljs-keyword">for</span> pt <span class="hljs-keyword">in</span> blocks:
+                enc_block = self.encrypt_block(self._xor(X, pt))
+                ct += enc_block
+                X = enc_block
+        <span class="hljs-keyword">return</span> ct
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encrypt_block</span><span class="hljs-params">(self, msg)</span>:</span>
+        m0 = b2l(msg[:<span class="hljs-number">4</span>])
+        m1 = b2l(msg[<span class="hljs-number">4</span>:])
+        K = self.KEY
+        msk = (<span class="hljs-number">1</span> &lt;&lt; (self.BLOCK_SIZE // <span class="hljs-number">2</span>)) - <span class="hljs-number">1</span>
+
+        s = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">32</span>):
+            s += self.DELTA
+            m0 += ((m1 &lt;&lt; <span class="hljs-number">4</span>) + K[<span class="hljs-number">0</span>]) ^ (m1 + s) ^ ((m1 &gt;&gt; <span class="hljs-number">5</span>) + K[<span class="hljs-number">1</span>])
+            m0 &amp;= msk
+            m1 += ((m0 &lt;&lt; <span class="hljs-number">4</span>) + K[<span class="hljs-number">2</span>]) ^ (m0 + s) ^ ((m0 &gt;&gt; <span class="hljs-number">5</span>) + K[<span class="hljs-number">3</span>])
+            m1 &amp;= msk
+
+        m = ((m0 &lt;&lt; (self.BLOCK_SIZE // <span class="hljs-number">2</span>)) + m1) &amp; (
+            (<span class="hljs-number">1</span> &lt;&lt; self.BLOCK_SIZE) - <span class="hljs-number">1</span>
+        )  <span class="hljs-comment"># m = m0 || m1</span>
+
+        <span class="hljs-keyword">return</span> l2b(m)
+
+
+</div></code></pre>
+<h3 id="generation-of-related-keys">Generation of related keys</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> tea <span class="hljs-keyword">import</span> Cipher
+<span class="hljs-keyword">import</span> os
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">byte_xor</span><span class="hljs-params">(ba1, ba2)</span>:</span>
+    <span class="hljs-keyword">return</span> bytes([_a ^ _b <span class="hljs-keyword">for</span> _a, _b <span class="hljs-keyword">in</span> zip(ba1, ba2)])
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find_key_collision</span><span class="hljs-params">(plaintext, IV)</span>:</span>
+    mask_31_63 = bytes.fromhex(<span class="hljs-string">"00000000000000008000000080000000"</span>)
+
+    mask_95_127 = bytes.fromhex(<span class="hljs-string">"80000000800000000000000000000000"</span>)
+
+    mask_all = bytes.fromhex(<span class="hljs-string">"80000000800000008000000080000000"</span>)
+
+    initial_key = os.urandom(<span class="hljs-number">16</span>)
+
+    key_31_63 = byte_xor(initial_key, mask_31_63)
+
+    key_95_127 = byte_xor(initial_key, mask_95_127)
+
+    key_all = byte_xor(initial_key, mask_all)
+
+    cipher = Cipher(initial_key, IV)
+
+    search_cipher = cipher.encrypt(plaintext)
+    <span class="hljs-keyword">return</span> (search_cipher, initial_key, key_31_63, key_95_127, key_all)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    IV = bytes.fromhex(<span class="hljs-string">"0dddd2773cf4b908"</span>)
+    plaintext = bytes.fromhex(<span class="hljs-string">"924ee49be65b5ef12053178d4637572934b60b89"</span>)
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):
+        values = find_key_collision(plaintext, IV)
+        print(<span class="hljs-string">f"Round Nr. <span class="hljs-subst">{i}</span> cipher: <span class="hljs-subst">{values[<span class="hljs-number">0</span>].hex()}</span>"</span>)
+        print(<span class="hljs-string">f"Round Nr. <span class="hljs-subst">{i}</span> 1st key: <span class="hljs-subst">{values[<span class="hljs-number">1</span>].hex()}</span>"</span>)
+        print(<span class="hljs-string">f"Round Nr. <span class="hljs-subst">{i}</span> 2nd key: <span class="hljs-subst">{values[<span class="hljs-number">2</span>].hex()}</span>"</span>)
+        print(<span class="hljs-string">f"Round Nr. <span class="hljs-subst">{i}</span> 3rd key: <span class="hljs-subst">{values[<span class="hljs-number">3</span>].hex()}</span>"</span>)
+        print(<span class="hljs-string">f"Round Nr. <span class="hljs-subst">{i}</span> 4th key: <span class="hljs-subst">{values[<span class="hljs-number">4</span>].hex()}</span>"</span>)
+        print(<span class="hljs-string">"-"</span> * <span class="hljs-number">20</span>)
+
+</div></code></pre>
+<h3 id="finding-the-iv">Finding the IV</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> bytes_to_long <span class="hljs-keyword">as</span> b2l, long_to_bytes <span class="hljs-keyword">as</span> l2b
+<span class="hljs-keyword">from</span> Crypto.Util.Padding <span class="hljs-keyword">import</span> pad
+
+BLOCK_SIZE = <span class="hljs-number">64</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">xor</span><span class="hljs-params">(a, b)</span>:</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">b""</span>.join(bytes([_a ^ _b]) <span class="hljs-keyword">for</span> _a, _b <span class="hljs-keyword">in</span> zip(a, b))
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decrypt</span><span class="hljs-params">(cipher, key)</span>:</span>
+    msg = cipher
+    blocks = [msg[i : i + BLOCK_SIZE // <span class="hljs-number">8</span>] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(msg), BLOCK_SIZE // <span class="hljs-number">8</span>)]
+    pt = <span class="hljs-string">b""</span>  <span class="hljs-comment"># create byte string</span>
+    <span class="hljs-keyword">for</span> ct <span class="hljs-keyword">in</span> blocks:
+        pt += decrypt_block(ct, key)
+    <span class="hljs-keyword">return</span> pt
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decrypt_block</span><span class="hljs-params">(block, key)</span>:</span>
+    DELTA = <span class="hljs-number">0x9E3779B9</span>
+    SUM = <span class="hljs-number">0xC6EF3720</span>
+
+    cip_0 = b2l(block[:<span class="hljs-number">4</span>])
+    cip_1 = b2l(block[<span class="hljs-number">4</span>:])
+
+    key0 = key[<span class="hljs-number">0</span>]
+    key1 = key[<span class="hljs-number">1</span>]
+    key2 = key[<span class="hljs-number">2</span>]
+    key3 = key[<span class="hljs-number">3</span>]
+    msk = (<span class="hljs-number">1</span> &lt;&lt; (BLOCK_SIZE // <span class="hljs-number">2</span>)) - <span class="hljs-number">1</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">32</span>):
+        cip_1 -= ((cip_0 &lt;&lt; <span class="hljs-number">4</span>) + key2) ^ (cip_0 + SUM) ^ ((cip_0 &gt;&gt; <span class="hljs-number">5</span>) + key3)
+        cip_1 &amp;= msk
+        cip_0 -= ((cip_1 &lt;&lt; <span class="hljs-number">4</span>) + key0) ^ (cip_1 + SUM) ^ ((cip_1 &gt;&gt; <span class="hljs-number">5</span>) + key1)
+        cip_0 &amp;= msk
+        SUM -= DELTA
+
+    message = ((cip_0 &lt;&lt; BLOCK_SIZE // <span class="hljs-number">2</span>) + cip_1) &amp; (<span class="hljs-number">1</span> &lt;&lt; BLOCK_SIZE) - <span class="hljs-number">1</span>
+
+    <span class="hljs-keyword">return</span> l2b(message)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    key = bytes.fromhex(<span class="hljs-string">"0d6925ccb247b092095fc26db2fef7bf"</span>)
+    ciphertext = bytes.fromhex(<span class="hljs-string">"5aa5139bf98fc2e2b177399828ac449c10687512e7140984"</span>)
+
+    KEY = [
+        b2l(key[i : i + BLOCK_SIZE // <span class="hljs-number">16</span>]) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(key), BLOCK_SIZE // <span class="hljs-number">16</span>)
+    ]
+    cipher_including_iv = decrypt(ciphertext, KEY)
+
+    original_message = bytes.fromhex(<span class="hljs-string">"4d7ae5f48d4553df5b3259d556316be799dc9812"</span>)
+
+    IV = XOR(original_message, cipher_including_iv)
+
+    print(<span class="hljs-string">f"IV = <span class="hljs-subst">{IV.hex()[:<span class="hljs-number">16</span>]}</span>"</span>)
+
+</div></code></pre>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+
+</body>
+</html>
